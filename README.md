@@ -1,7 +1,1 @@
 # Algorithm
-
-## asdfasd
-
-'''
-int a
-'''
