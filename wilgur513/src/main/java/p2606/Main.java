@@ -24,7 +24,7 @@ class Graph{
         adj[v2].add(v1);
     }
 
-    public void dfs(int from){
+    public void bfs(int from){
         visited[from] = true;
         Queue<Integer> queue = new LinkedList<>();
         queue.add(from);
@@ -74,7 +74,7 @@ public class Main {
     }
 
     private static void solve() {
-        graph.dfs(0);
+        graph.bfs(0);
         System.out.println(graph.numOfVirus());
     }
 }
