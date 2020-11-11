@@ -25,9 +25,7 @@ public class Main {
     private static void initCranes() throws IOException {
         int n = Integer.valueOf(reader.readLine());
         cranes = new Cranes();
-
-        for(int weight : inputIntegerArray(n))
-            cranes.add(new Crane(weight));
+        Arrays.stream(inputIntegerArray(n)).map(Crane::new).forEach(cranes::add);
     }
 
     private static void initLuggage() throws IOException {
