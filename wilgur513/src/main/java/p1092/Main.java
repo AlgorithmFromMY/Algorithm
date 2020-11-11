@@ -51,12 +51,15 @@ public class Main {
     }
 
     private static int requiredTime(){
-        if(!cranes.canTakeLuggage(luggage[0]))
-            return -1;
+        return hasCanNotTakeLuggage() ? -1 : takeLuggageAndCalculateRequiredTime();
+    }
 
-        for(int w : luggage)
-            cranes.take(w);
-
+    private static int takeLuggageAndCalculateRequiredTime() {
+        Arrays.stream(luggage).forEach(cranes::take);
         return cranes.requiredTime();
+    }
+
+    private static boolean hasCanNotTakeLuggage(){
+        return !cranes.canTakeLuggage(luggage[0]);
     }
 }
