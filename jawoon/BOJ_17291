@@ -1,0 +1,16 @@
+n = int(input())
+
+result=[[0]*2]*20
+result[0]=[1,0]
+result[3]=[0,1]
+
+for survive_index in range(1,len(result)):
+##    print(survive_index," : ",result)
+    result[survive_index]=[result[survive_index-1][0]*2-result[survive_index][1], result[survive_index][1] ]
+    
+    if survive_index%2==0 and survive_index<=16: ##홀수 년차
+        result[survive_index+3]=[0,result[survive_index+3][1] + result[survive_index-1][0]]
+    elif survive_index%2!=0 and survive_index<=15:  ## 짝수 년차
+        result[survive_index+4]=[0,result[survive_index+4][1] + result[survive_index-1][0]]
+
+print(result[n-1][0])
