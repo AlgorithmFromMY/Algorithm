@@ -1,0 +1,21 @@
+def solution(s):
+    result = len(s)
+    for i in range(1,len(s)):
+        sub_result=0
+        sub_count=0
+        for j in range(1,int(len(s)/i)+1):
+
+            if s[i*(j-1):i*j] == s[i*j:i*(j+1)]:
+                sub_count =sub_count+1
+            else:
+                sub_result+=i
+                if sub_count != 0:
+                    sub_result+=len(str(sub_count))
+                sub_count=0
+        if i*j < len(s):
+            sub_result = sub_result+len(s)-i*j
+        if result>sub_result:
+            result=sub_result
+            sub_result=0
+
+    return(result)
