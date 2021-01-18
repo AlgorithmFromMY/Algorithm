@@ -4,6 +4,7 @@ import org.junit.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
@@ -46,5 +47,28 @@ public class NumberIdentifierTest {
     public void identifyByEmptyLamp(){
         List<Integer> expected = identifier.identify(convertor.convert(new String[]{"...", "...", "...", "...", "..."}));
         assertThat(expected, is(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)));
+    }
+
+    @Test
+    public void answersArithmeticMeanOfTwoNumbers(){
+        // Arrange
+        ScoreCollection collection = new ScoreCollection();
+        collection.add(() -> 5);
+        collection.add(() -> 7);
+
+        // Act
+        int actualResult = collection.arithmeticMean();
+
+        // Assert
+        assertThat(actualResult, is(6));
+    }
+
+    private class ScoreCollection {
+        public void add(Supplier o) {
+        }
+
+        public int arithmeticMean() {
+            return 0;
+        }
     }
 }
