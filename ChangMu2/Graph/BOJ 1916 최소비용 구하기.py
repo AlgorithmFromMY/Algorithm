@@ -1,3 +1,4 @@
+#BOJ 1926 최소비용 구하기 (다익스트라)
 import sys, heapq
 input=sys.stdin.readline
 
